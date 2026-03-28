@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var items: [String] = []
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            Tab {
+                NavigationStack {
+                    MainView()
+                }
+            } label: {
+                Label("Fortune Wheel", systemImage: "wand.and.stars")
+            }
+            Tab {
+                UAUICommonInfoView(title: "LuckyWheel", logoName: "Logo", version: "1.0", libraries: [], content: {
+                })
+            } label: {
+                Label("Settings", systemImage: "gear")
+            }
         }
-        .padding()
     }
 }
 
